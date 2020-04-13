@@ -21,6 +21,24 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
+	
+	<interceptors>
+    	<interceptor>
+        <mapping path="/user/loginpost"/>
+        <beans:bean id ="loginInterceptor" class="edu.Farmfarm.interceptor.LoginInterceptor" />
+    	</interceptor>
+    	
+    	<interceptor>
+        <!-- 여기에 mapping path 여러개 작성. 로그인 확인이 필요한 메뉴들 페이지 주소를 적으면 됨. -->
+        <mapping path="/user/menuname"/>
+        <beans:bean id ="authInterceptor" class="edu.Farmfarm.interceptor.AuthInterceptor" />
+    	</interceptor>
+    	
+	</interceptors>
+	
+	
+	
+	
 	<context:component-scan base-package="edu.Farmfarm.controller" />
 	
 	

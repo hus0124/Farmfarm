@@ -7,6 +7,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a3>이 페이지가 뜬다면 로그인 성공</a3>
+<h2>이 페이지가 뜬다면 로그인 성공</h2>
+
+<form action = "/user/logout" method = "get">
+<input type = "submit" value = "로그아웃">
+</form>
+
+<script>
+ alert("아이디와 비밀번호를 확인해주세요.");
+ self.location = "/user/login";
+</script>
+    
 </body>
 </html>

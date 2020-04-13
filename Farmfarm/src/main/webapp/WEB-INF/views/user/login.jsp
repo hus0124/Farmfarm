@@ -7,7 +7,7 @@
 <title>로그인 페이지</title>
 </head>
 <body>
-<a4>로그인</a4>
+<h3>로그인</h3>
 <form action = "/user/loginpost" method = "post">
 아이디<input type = "text" name = "ID"><br>
 패스워드<input type = "text" name = "PW">

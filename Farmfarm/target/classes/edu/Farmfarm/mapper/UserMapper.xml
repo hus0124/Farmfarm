@@ -8,5 +8,8 @@
         INSERT INTO memberinfo (ID,PW,Username,Email,Serialnum)
         VALUES (#{ID}, #{PW}, #{Username}, #{Email}, #{Serialnum})
     </insert>
-    
+
+<select id="login" resultType = "edu.Farmfarm.domain.UserVO">
+SELECT * FROM memberinfo WHERE ID = #{ID}
+</select>    
 </mapper>  
