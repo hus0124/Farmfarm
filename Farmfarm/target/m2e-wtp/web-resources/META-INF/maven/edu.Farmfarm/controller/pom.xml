@@ -179,6 +179,14 @@
 		    <version>2.3.0</version>
 		</dependency>
 
+<!-- DB Encrypt -->
+<!-- https://mvnrepository.com/artifact/org.mindrot/jbcrypt -->
+		<dependency>
+		    <groupId>org.mindrot</groupId>
+		    <artifactId>jbcrypt</artifactId>
+		    <version>0.4</version>
+		</dependency>
+
 	</dependencies>
 	<build>
 		<plugins>
