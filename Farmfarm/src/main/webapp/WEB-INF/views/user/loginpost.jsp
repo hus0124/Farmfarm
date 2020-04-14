@@ -12,7 +12,7 @@
 <form action = "/user/logout" method = "get">
 <input type = "submit" value = "로그아웃">
 </form>
-
+<a href="admintemp.jsp">관리자페이지로 가나 테스트해보기</a>
 <script>
  alert("아이디와 비밀번호를 확인해주세요.");
  self.location = "/user/login";
