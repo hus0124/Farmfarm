@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="edu.Farmfarm.mapper.SensorMapper">
+
+	
+	
+	<select id="maxnum" resultType="edu.Farmfarm.domain.SensorVO">
+	<![CDATA[
+		SELECT MAX(seq) from sensorinfo 
+		]]>
+	</select>
+	
+	<select id="weektemp" resultType="edu.Farmfarm.domain.SensorVO">
+	<![CDATA[
+		SELECT Temp from sensorinfo ORDER BY seq DESC LIMIT 7
+		]]>
+	</select>
+	
+	<select id="weektime" resultType="edu.Farmfarm.domain.SensorVO">
+	<![CDATA[
+		SELECT Time from sensorinfo ORDER BY seq DESC LIMIT 7
+		]]>
+	</select>
+
+	<select id="weekhumid" resultType="edu.Farmfarm.domain.SensorVO">
+	<![CDATA[
+		SELECT Humid from sensorinfo ORDER BY seq DESC LIMIT 7
+		]]>
+	</select>
+	
+	<select id = "testChart" resultType="edu.Farmfarm.domain.SensorVO">
+	 SELECT TIME, Temp, Humid FROM sensorinfo ORDER BY seq DESC LIMIT 7
+	</select>
+</mapper>

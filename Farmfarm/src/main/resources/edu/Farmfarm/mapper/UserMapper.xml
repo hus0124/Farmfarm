@@ -7,9 +7,37 @@
 <insert id="register">
         INSERT INTO memberinfo (ID,PW,Username,Email,Serialnum)
         VALUES (#{ID}, #{PW}, #{Username}, #{Email}, #{Serialnum})
-    </insert>
+</insert>
 
 <select id="login" resultType = "edu.Farmfarm.domain.UserVO">
 SELECT * FROM memberinfo WHERE ID = #{ID}
-</select>    
+</select>
+
+<select id = "myInfo" resultType = "edu.Farmfarm.domain.UserVO">
+SELECT * FROM memberinfo WHERE ID = #{object}
+</select>
+
+<update id = "changeName">
+UPDATE memberinfo SET Username = #{Username} WHERE ID = #{ID}
+</update>
+
+<update id = "changeEmail">
+UPDATE memberinfo SET Email = #{Email} WHERE ID = #{ID}
+</update>     
+
+<update id = "changeSerial">
+UPDATE memberinfo SET Serialnum = #{Serialnum} WHERE ID = #{ID}
+</update> 
+
+<update id = "changePW">
+UPDATE memberinfo SET PW = #{PW} WHERE ID = #{ID}
+</update> 
+
+<delete id = "leave">
+DELETE FROM memberinfo where ID = #{ID}
+</delete>
+
+<select id="checkOverId" resultType = "int">
+SELECT count(*) FROM memberinfo WHERE ID = #{ID}
+</select>
 </mapper>  
