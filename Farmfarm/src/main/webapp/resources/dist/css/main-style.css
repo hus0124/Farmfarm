@@ -1,0 +1,74 @@
+@charset "utf-8";
+
+/* 전체 프레임 레이아웃 */
+* {margin:0; padding:0;}
+body {font:normal 14px/1.6 'Orbitron', sans-serif; background-color:darkgoldenrod;}
+li {list-style:none;}
+img {vertical-align:top; border:0;}
+a {text-decoration:none; outline:0; color:#fff;}
+select {outline:0;}
+#header {height:900px; background:url(/resources/dist/images/bback.jpg) no-repeat 0 0/cover;}
+
+/* 구름 모션 */
+.cloud {position:relative; height:100%; overflow:hidden;}
+.cloud span {display:inline-block; position:absolute; animation:linear infinite; opacity:0.8;}
+.cloud span:nth-of-type(1) {top:0; left:-1146px; animation-name:ani1; animation-duration:110s;}
+.cloud span:nth-of-type(2) {top:20px; left:0px; animation-name:ani2; animation-duration:100s;}
+
+@keyframes ani1 {
+   0% {left:-1146px;}
+   100% {left:1950px;}
+}
+@keyframes ani2 {
+   0% {left:0px;}
+   50% {left:1950px; opacity:0;}
+   50.001% {left:-1840px; opacity:0.8;}
+   100% {left:0px;}
+}
+
+/* 로고 */
+h1 {position:fixed; top:30px; left:60px; z-index:1;}
+h1 a {display:block; width:130px; height:52px;}
+h1:hover {animation:seesaw 2s none infinite normal;}
+@keyframes seesaw {
+   0% {transform:rotate(0deg);}
+   25% {transform:rotate(5deg);}
+   50% {transform:rotate(0deg);}
+   75% {transform:rotate(-5deg);}
+   100% {transform:rotate(0deg);}
+}
+
+/* GNB */
+#gnb {position:fixed; top:50px; right:100px; z-index:1;}
+#gnb li {position:relative; float:left; margin-left:30px; font-size:18px; font-weight:bold; color:#fff;}
+#gnb span {position:absolute; bottom:-5px; left:0; z-index:-1; display:inline-block; width:0px; height:3px; transition:all .5s; background:orange; transform:scaleX(0);}
+#gnb li:nth-of-type(1) span {width:65px;}
+#gnb li:nth-of-type(2) span {width:55px;}
+#gnb li:nth-of-type(3) span {width:40px;}
+#gnb li:nth-of-type(4) span {width:55px;}
+#gnb li:hover span {transform:scaleX(1);}
+#gnb li:hover a{color:orange;}
+#gnb a {display:block;}
+
+/* 타이틀 */
+.title {position:absolute; top:300px; left:150px; width:350px; text-align:center; background-color:#000; border-radius: 15px;opacity:0.7;}
+.title h2 {font-size:50px; color:green;}
+.title strong {color:#fff;}
+.title p {font-style:normal; color:orange;}
+
+/* 모바일 - 프레임 */
+#mobile {position:absolute; top:110px; right:70px; width:790px; height:750px; background:url(/resources/dist/images/tablet4.png) no-repeat 0 0/cover; opacity:0.9; }
+
+/* 시계 */
+.time {position:absolute; top:240px; left:120px; font-size:35px; font-weight:bold; color:#fff; padding-left:50px; z-index:1;}
+.time:nth-of-type(2) {font-size:30px;}
+
+/* 모바일 - 그레프 */
+.graph {position:absolute; width:93%; height:85%; top:55px; left:30px;; opacity: .9;overflow:hidden;}
+
+/* 테마 버튼 */
+#bnb {position:absolute; bottom:10px; left:6%; width:88%;}
+#bnb li {float:left; width:25%;}
+#bnb a {display:block; background:#fff; color:#111; opacity:0.6; transition:all .5s; font-size:15px; font-weight:bold; letter-spacing:3px; line-height:2; padding-left:30px; box-sizing:border-box; width:98%; height:36px; margin:0 auto;}
+#bnb a:hover {background:#111; color:#ddd; opacity:0.9;}
+
