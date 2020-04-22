@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.zerock.mapper.ReplyMapper">
+
+	<insert id="insert">
+		insert into admin_memo (rno, ID, reply, replyer)
+		values (rno, #{ID}, #{reply}, #{replyer})
+	</insert>
+
+	<select id="read" resultType="org.zerock.domain.ReplyVO">
+		select * from admin_memo where ID = #{ID}
+	</select>
+
+
+	<delete id="delete">
+		delete from admin_memo where rno = #{rno}
+	</delete>
+
+	<update id="update">
+		update admin_memo set reply = #{reply}, updatedate = sysdate 
+		where rno = #{rno}
+	</update>
+
+<!-- 	<select id="getListWithPaging"
+		resultType="org.zerock.domain.ReplyVO">
+
+		select rno, ID, reply, replyer, replyDate, updatedate
+		from admin_memo
+		where ID = #{ID}
+		order by rno asc
+
+	</select-->
+
+<select id="getListWithPaging" resultType="org.zerock.domain.ReplyVO">
+
+select rno, ID, reply, replyer, replydate, updatedate
+from admin_memo
+where ID = #{ID} order by rno
+<!-- limit (#{cri.pageNum} -1) * #{cri.amount}, #{cri.amount} -->
+
+
+
+<!--   <![CDATA[ -->
+<!--  select rno, ID, reply, replyer, replydate, updatedate -->
+<!--  from  -->
+<!--    ( -->
+<!--     select /*+INDEX(admin_memo idx_reply) */  -->
+<!--       rno, ID, reply, replyer, replyDate, updatedate -->
+<!--     from admin_memo -->
+<!--     where ID =  #{ID} -->
+<!--     and rno > 0 -->
+<!--     and rno <= #{cri.pageNum} * #{cri.amount} -->
+<!--    )CNT where rno > (#{cri.pageNum} -1) * #{cri.amount}		/* mariaDB에서 서브쿼리가 없어서 에러남. CNT를 넣어줘야 됨. */ -->
+<!-- ]]> -->
+
+</select>
+
+
+<select id="getCountByID" resultType="int">
+<![CDATA[
+select count(rno) from admin_memo where ID = #{ID}
+]]>
+</select>
+
+
+</mapper>

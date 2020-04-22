@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <!-- 	BNO = id, TITLE = 이름, WRITER = 이메일, CONTENT = 센서별 그래프 --> 
+<mapper namespace="org.zerock.mapper.AdminMapper">
+
+	<sql id="criteria">
+		<trim prefix="(" suffix=") AND " prefixOverrides="OR">
+			<foreach item='type' collection="typeArr">
+				<trim prefix="OR">
+					<choose>
+						<when test="type == 'I'.toString()">
+							ID like CONCAT('%', #{keyword}, '%')			<!-- 오라클은 '%'||#{keyword}||'%' -->
+						</when>
+						<when test="type == 'U'.toString()">
+							Username like CONCAT('%', #{keyword}, '%')	<!-- MySql은 옆에 구문 -->
+						</when>
+						<when test="type == 'S'.toString()">
+							Serialnum like CONCAT('%', #{keyword}, '%')	
+						</when>
+					</choose>
+				</trim>
+			</foreach>
+		</trim>
+	</sql>
+
+	<select id="getList" resultType="org.zerock.domain.AdminVO">
+	<![CDATA[
+		select * from memberinfo where
+		seq <= 10
+		]]>
+	</select>	
+	
+	<!-- insert id="insert">
+		insert into memberinfo (id,username,Email)
+		values (seq_admin.nextval, #{username}, #{Email})
+	</insert>
+
+	<insert id="insertSelectKey">
+		<selectKey keyProperty="id" order="BEFORE"	resultType="long">
+			select seq_admin.nextval from dual
+		</selectKey>
+
+		insert into memberinfo (id,username,Email)
+		values (#{ID},
+		#{username}, #{Email})
+	</insert-->
+
+	<select id="read" resultType="org.zerock.domain.AdminVO">
+		select * from memberinfo where ID =	#{ID}
+	</select>
+
+
+	<delete id="delete">
+		DELETE FROM memberinfo WHERE ID = #{ID}
+	</delete>
+	
+	
+<!-- 	<update id="update">
+		update memberinfo
+		set username= #{username},
+		content=#{content},
+		Email = #{Email},
+		updateDate = sysdate
+		where id = #{ID}
+	</update>
+
+
+<select id="getListWithPaging"
+    resultType="org.zerock.domain.AdminVO">
+  <![CDATA[
+   select 
+     id, username, Email, serialnum, updatedate
+   from 
+       (
+       select /*+INDEX_DESC(memberinfo pk_admin) */
+         rownum rn, id, username, Email, serialnum
+       from 
+         memberinfo
+      where rownum <= #{pageNum} * #{amount}
+      )
+  where rn > (#{pageNum} -1) * #{amount}   
+ 
+  ]]>
+  </select>   
+-->
+
+ <select id="getListWithPaging" resultType="org.zerock.domain.AdminVO">
+  <![CDATA[
+  select 
+     ID, Username, Email, Serialnum
+   from 
+       (
+       select /*+INDEX_DESC(memberinfo pk_admin) */
+         seq, ID, Username, Email, Serialnum
+       from 
+         memberinfo
+      where 
+  ]]>
+  <include refid="criteria"></include>       
+  <![CDATA[    
+      SEQ <= #{pageNum} * #{amount}
+      )CNT			/* mariaDB에서 서브쿼리가 없어서 에러남. CNT를 넣어줘야 됨. */
+  where seq > (#{pageNum} -1) * #{amount}   
+  ]]>
+  </select>
+
+  
+  <select id="getTotalCount" resultType="int">
+  select count(*) from memberinfo where   
+  <include refid="criteria"></include>   
+  seq > 0  
+  </select>
+  
+  <select id="totaltest" resultType="org.zerock.domain.AdminVO">
+	<![CDATA[
+		select count(*) as totaltest from memberinfo where seq > 0  
+		]]>
+	</select>
+
+</mapper>

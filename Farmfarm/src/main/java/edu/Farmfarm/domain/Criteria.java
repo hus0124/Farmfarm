@@ -8,16 +8,24 @@ import lombok.ToString;
 @Setter
 @ToString
 public class Criteria {
-	private int first;
-	private int last;
-	
-	public Criteria(int first,int last) {
-		this.first=first;
-		this.last=last;
-	
+
+	  private int pageNum;
+	  private int amount;
+	  
+	  private String type;
+	  private String keyword;
+
+	  public Criteria() {
+	    this(1, 10);
+	  }
+
+	  public Criteria(int pageNum, int amount) {
+	    this.pageNum = pageNum;
+	    this.amount = amount;
+	  }
+	  
+	  public String[] getTypeArr() {
+	    
+	    return type == null? new String[] {}: type.split("");
+	  }
 	}
-	
-	public Criteria() {
-		this(1,7);
-	}
-}
