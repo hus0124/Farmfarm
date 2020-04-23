@@ -42,7 +42,7 @@ h1:hover {animation:seesaw 2s none infinite normal;}
 #gnb {position:fixed; top:50px; right:100px; z-index:1;}
 #gnb li {position:relative; float:left; margin-left:30px; font-size:18px; font-weight:bold; color:#fff;}
 #gnb span {position:absolute; bottom:-5px; left:0; z-index:-1; display:inline-block; width:0px; height:3px; transition:all .5s; background:orange; transform:scaleX(0);}
-#gnb li:nth-of-type(1) span {width:65px;}
+#gnb li:nth-of-type(1) span {width:75px;}
 #gnb li:nth-of-type(2) span {width:55px;}
 #gnb li:nth-of-type(3) span {width:45px;}
 #gnb li:nth-of-type(4) span {width:55px;}
@@ -55,6 +55,7 @@ h1:hover {animation:seesaw 2s none infinite normal;}
 .title h2 {font-size:50px; color:green;}
 .title strong {color:#fff;}
 .title p {font-style:normal; color:orange;}
+
 
 /* 모바일 - 프레임 */
 #mobile {position:absolute; top:110px; right:70px; width:790px; height:750px; background:url(/resources/dist/images/tablet4.png) no-repeat 0 0/cover; opacity:0.9; z-index:1;}

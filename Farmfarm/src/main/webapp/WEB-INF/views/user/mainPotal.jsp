@@ -3,19 +3,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>FarmFarm</title>
 <meta charset="UTF-8">
+<title>FarmFarm</title>
 <link rel="stylesheet" href="/resources/dist/css/main-style.css">
    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.0.min.js"></script>
-   <!--<script src="/resources/dist/js/main-script.js"></script>->
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery.min.js"></script>
     <!-- google charts -->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
 </head>
-<body>
- 
+<body> 
       <!-- 헤더 -->
       <div id="header">
       		
@@ -39,18 +37,19 @@
          </div>
 
          <!-- 왼쪽 타이틀 -->
-          <div class="time"><span>00</span>:<span>00</span>:<span>00</span></div>
+          <div class="time"><span id="dpTime"></span></div>
+          
          <div class="title">                             
-            <h2><strong>온도 :</strong><span id="tempck"></span></h2>
+            <h2><strong>온도 :</strong>&nbsp;<span id="tempck"></span></h2>
             <!--<p>기준 온도:???????</p> -->
                        
-            <h2><strong>수위 :</strong><span id="waterck"></span></h2>
+            <h2><strong>수위 :</strong>&nbsp;<span id="waterck"></span></h2>
             <!--<p>기준 습도:???????</p> --> 
                       
-            <h2><strong>조도 :</strong><span id="lightck"></span></h2>
+            <h2><strong>조도 :</strong>&nbsp;<span id="lightck"></span></h2>
             <!--<p>기준 조도:???????</p> -->  
                      
-            <h2><strong>토양 :</strong><span id="groundck"></span></h2>
+            <h2><strong>토양 :</strong>&nbsp;<span id="groundck"></span></h2>
             <!--<p>기준 토양:???????</p>-->            
          </div>
 
@@ -75,8 +74,6 @@
    </div>
  
  
-
-
 <script type = "text/javascript">
 var msg = "${msg}";
 console.log(msg);
@@ -85,10 +82,39 @@ else {
  alert("아이디와 비밀번호를 확인해주세요.");
  self.location = "/user/index"}; 
 </script>
- 
+
 </body>
 
 <script type = "text/javascript">
+
+	//시간 데이터
+	setInterval("dpTime()",1000);
+    function dpTime(){
+       var now = new Date();
+        hours = now.getHours();
+        minutes = now.getMinutes();
+        seconds = now.getSeconds();
+ 
+        if (hours > 12){
+            hours -= 12;
+        ampm = "오후 ";
+        }else{
+            ampm = "오전 ";
+        }
+        if (hours < 10){
+            hours = "0" + hours;
+        }
+        if (minutes < 10){
+            minutes = "0" + minutes;
+        }
+        if (seconds < 10){
+            seconds = "0" + seconds;
+        }
+	document.getElementById("dpTime").innerHTML = ampm + hours + ":" + minutes + ":" + seconds;
+    }
+
+
+	//센서별 데이터
 	document.addEventListener("DOMContentLoaded", function() {setInterval(check, 1000);});
 	function check(){
    
@@ -144,8 +170,8 @@ else {
              }
     	});   	
 	}
- </script>
- <script type="text/javascript">	   
+
+	
  	 $('.btn_temp').click(function(){   
        google.charts.load('current', {'packages':['corechart']});
        google.charts.setOnLoadCallback(drawChart);	
@@ -184,9 +210,8 @@ else {
         +chart.draw(data, options);
       };
 	 }); 	 
-    </script>
-    
-     <script type="text/javascript">   	   
+
+ 	 
 	 $('.btn_water').click(function(){   
 
       google.charts.load('current', {'packages':['corechart']});
@@ -225,9 +250,8 @@ else {
         chart.draw(data, options);
       }; 
 	 });	 
-    </script>
-    
-     <script type="text/javascript">	   
+
+	 
 	 $('.btn_light').click(function(){  
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);	
@@ -268,9 +292,7 @@ else {
       };	 
 	 });
 	 
-    </script>
-    
-         <script type="text/javascript"> 	   
+ 	   
 	 $('.btn_ground').click(function(){   
 
       google.charts.load('current', {'packages':['corechart']});
@@ -314,8 +336,7 @@ else {
         chart.draw(data, options);
       };	 
 	 });
-    </script>
-    
+    </script> 
     
     
 </html>

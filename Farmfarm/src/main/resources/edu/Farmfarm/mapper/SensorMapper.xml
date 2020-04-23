@@ -9,7 +9,7 @@
 
 	
 	<select id="weektemp" resultType="edu.Farmfarm.domain.SensorVO">
-		<![CDATA[SELECT Temp FROM sensorinfo LIMIT 20]]>
+		<![CDATA[SELECT Temp FROM sensorinfo ORDER BY seq DESC LIMIT 20]]>
 	</select>
 	
 	<select id="tempck" resultType="edu.Farmfarm.domain.SensorVO">
@@ -17,7 +17,7 @@
 	</select>
 	
 	<select id="weeklight" resultType="edu.Farmfarm.domain.SensorVO">
-		<![CDATA[SELECT Light FROM sensorinfo LIMIT 20]]>
+		<![CDATA[SELECT Light FROM sensorinfo ORDER BY seq DESC LIMIT 20]]>
 	</select>
 	
 	<select id="lightck" resultType="edu.Farmfarm.domain.SensorVO">
@@ -25,7 +25,7 @@
 	</select>
 	
 	<select id="weekground" resultType="edu.Farmfarm.domain.SensorVO">
-		<![CDATA[SELECT Ground FROM sensorinfo LIMIT 20]]>
+		<![CDATA[SELECT Ground FROM sensorinfo ORDER BY seq DESC LIMIT 20]]>
 	</select>
 	
 	<select id="groundck" resultType="edu.Farmfarm.domain.SensorVO">
@@ -33,7 +33,7 @@
 	</select>
 	
 	<select id="weekwater" resultType="edu.Farmfarm.domain.SensorVO">
-		<![CDATA[SELECT Water FROM sensorinfo LIMIT 20]]>
+		<![CDATA[SELECT Water FROM sensorinfo ORDER BY seq DESC LIMIT 20]]>
 	</select>
 	
 	<select id="waterck" resultType="edu.Farmfarm.domain.SensorVO">
@@ -41,7 +41,7 @@
 	</select>
 	
 	<select id="weektime" resultType="edu.Farmfarm.domain.SensorVO">
-		<![CDATA[SELECT DATE_FORMAT(Time,'%Hh%im') Time FROM sensorinfo LIMIT 20]]>
+		<![CDATA[SELECT DATE_FORMAT(Time,'%Hh%im') Time FROM sensorinfo ORDER BY seq DESC LIMIT 20]]>
 	</select>
 	
 	<select id="maxnum" resultType= "Integer">
