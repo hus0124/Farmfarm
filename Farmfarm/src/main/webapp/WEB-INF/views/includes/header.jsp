@@ -55,7 +55,7 @@
 	               <li><a href="/user/logout"><span></span>Log Out</a></li>               
 	               <li><a href="/user/myinfo"><span></span>내정보</a></li>
 	               <li><a href="/test/testWeb"><span></span>원격</a></li>
-	               <li><a href="/main/#"><span></span>게시판</a></li>
+	               <li><a href="/board/list"><span></span>게시판</a></li>
 	            </ul>
 	            </div>
             </div>
