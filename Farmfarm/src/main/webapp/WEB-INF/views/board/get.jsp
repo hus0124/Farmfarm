@@ -7,7 +7,7 @@
 
 <div class="row">
   <div class="col-lg-12">
-    <h1 class="page-header">Board Register</h1>
+    <h1 class="page-header">게시글</h1>
   </div>
   <!-- /.col-lg-12 -->
 </div>
@@ -17,28 +17,28 @@
   <div class="col-lg-12">
     <div class="panel panel-default">
 
-      <div class="panel-heading">Board Read Page</div>
+      <div class="panel-heading">게시글 보기</div>
       <!-- /.panel-heading -->
       <div class="panel-body">
 
           <div class="form-group">
-          <label>Bno</label> <input class="form-control" name='bno'
+          <label>글번호</label> <input class="form-control" name='bno'
             value='<c:out value="${board.bno }"/>' readonly="readonly">
         </div>
 
         <div class="form-group">
-          <label>Title</label> <input class="form-control" name='title'
+          <label>제목</label> <input class="form-control" name='title'
             value='<c:out value="${board.title }"/>' readonly="readonly">
         </div>
 
         <div class="form-group">
-          <label>Text area</label>
-          <textarea class="form-control" rows="3" name='content'
+          <label>내용</label>
+          <textarea class="form-control" rows="10" name='content'
             readonly="readonly"><c:out value="${board.content}" /></textarea>
         </div>
 
         <div class="form-group">
-          <label>Writer</label> <input class="form-control" name='writer'
+          <label>작성자</label> <input class="form-control" name='writer'
             value='<c:out value="${board.writer }"/>' readonly="readonly">
         </div>
 
@@ -48,8 +48,8 @@
         <a href="/board/list">List</a></button> --%>
 
 
-<button data-oper='modify' class="btn btn-default">Modify</button>
-<button data-oper='list' class="btn btn-info">List</button>
+<button data-oper='modify' class="btn btn-default">수정</button>
+<button data-oper='list' class="btn btn-success">목록</button>
 
 <%-- <form id='operForm' action="/boad/modify" method="get">
   <input type='hidden' id='bno' name='bno' value='<c:out value="${board.bno}"/>'>
@@ -78,15 +78,15 @@
 <!-- /.row -->
 
 
-<div class='row'>
+<!-- <div class='row'>
 
   <div class="col-lg-12">
 
-    <!-- /.panel -->
+    /.panel
     <div class="panel panel-default">
-<!--       <div class="panel-heading">
+      <div class="panel-heading">
         <i class="fa fa-comments fa-fw"></i> Reply
-      </div> -->
+      </div>
       
       <div class="panel-heading">
         <i class="fa fa-comments fa-fw"></i> Reply
@@ -94,23 +94,23 @@
       </div>      
       
       
-      <!-- /.panel-heading -->
+      /.panel-heading
       <div class="panel-body">        
       
         <ul class="chat">
 
         </ul>
-        <!-- ./ end ul -->
+        ./ end ul
       </div>
-      <!-- /.panel .chat-panel -->
+      /.panel .chat-panel
 
 	<div class="panel-footer"></div>
 
 
 		</div>
   </div>
-  <!-- ./ end row -->
-</div>
+  ./ end row
+</div> -->
 
 
 
