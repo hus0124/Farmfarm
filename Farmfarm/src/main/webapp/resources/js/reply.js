@@ -4,7 +4,6 @@ var replyService = (function() {
 
 	function add(reply, callback, error) {
 		console.log("add reply...............");
-
 		$.ajax({
 			type : 'post',
 			url : '/replies/new',
@@ -24,11 +23,9 @@ var replyService = (function() {
 	}
 
 //	function getList(param, callback, error) {
-//
-//		var bno = param.bno;
+//		var rno = param.rno;
 //		var page = param.page || 1;
-//
-//		$.getJSON("/replies/pages/" + bno + "/" + page + ".json",
+//		$.getJSON("/replies/pages/" + rno + "/" + page + ".json",
 //				function(data) {
 //					if (callback) {
 //						callback(data);
@@ -38,20 +35,20 @@ var replyService = (function() {
 //				error();
 //			}
 //		});
-//	}
-	
+//	}	
 	
 
 	function getList(param, callback, error) {
-
-	    var bno = param.bno;
+	    var rno = param.rno;
 	    var page = param.page || 1;
+	    var id = param.id;			// 이거랑	    
 	    
-	    $.getJSON("/replies/pages/" + bno + "/" + page + ".json",
-	        function(data) {
-	    	
+	    console.log("id값은" +id);
+	    console.log("page값은" +page);
+	    $.getJSON("/replies/pages/" + id +"/" + page + ".json",
+	        function(data) {	    	
 	          if (callback) {
-	            //callback(data); // 댓글 목록만 가져오는 경우 
+	            // callback(data); // 댓글 목록만 가져오는 경우 
 	            callback(data.replyCnt, data.list); //댓글 숫자와 목록을 가져오는 경우 
 	          }
 	        }).fail(function(xhr, status, err) {
@@ -80,9 +77,7 @@ var replyService = (function() {
 	}
 
 	function update(reply, callback, error) {
-
 		console.log("RNO: " + reply.rno);
-
 		$.ajax({
 			type : 'put',
 			url : '/replies/' + reply.rno,
@@ -102,9 +97,8 @@ var replyService = (function() {
 	}
 
 	function get(rno, callback, error) {
-
+		console.log("이건 무엇인가..............");
 		$.get("/replies/" + rno + ".json", function(result) {
-
 			if (callback) {
 				callback(result);
 			}
@@ -126,11 +120,9 @@ var replyService = (function() {
 		var str = "";
 
 		if (gap < (1000 * 60 * 60 * 24)) {
-
 			var hh = dateObj.getHours();
 			var mi = dateObj.getMinutes();
 			var ss = dateObj.getSeconds();
-
 			return [ (hh > 9 ? '' : '0') + hh, ':', (mi > 9 ? '' : '0') + mi,
 					':', (ss > 9 ? '' : '0') + ss ].join('');
 
@@ -138,12 +130,10 @@ var replyService = (function() {
 			var yy = dateObj.getFullYear();
 			var mm = dateObj.getMonth() + 1; // getMonth() is zero-based
 			var dd = dateObj.getDate();
-
 			return [ yy, '/', (mm > 9 ? '' : '0') + mm, '/',
 					(dd > 9 ? '' : '0') + dd ].join('');
 		}
-	}
-	;
+	};
 
 	return {
 		add : add,

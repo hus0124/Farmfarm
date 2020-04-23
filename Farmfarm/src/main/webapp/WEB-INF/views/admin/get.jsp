@@ -46,10 +46,15 @@ if (session.getAttribute("adminuser")!="admin"){
         </div>
 
         <div class="form-group">
+          <label>시리얼 넘버</label> <input class="form-control" name='serialnum'
+            value='<c:out value="${admin.serialnum }"/>' readonly="readonly">
+        </div>
+        
+        <div class="form-group">
           <label>센서별 그래프</label>
           <textarea class="form-control" rows="3" name='serialnum'
             readonly="readonly"><c:out value="${admin.serialnum}" /></textarea>
-        </div>        
+        </div>              
 
 <%-- 		<button data-oper='modify' class="btn btn-default">
         <a href="/admin/modify?id=<c:out value="${admin.ID}"/>">Modify</a></button>
@@ -159,14 +164,12 @@ if (session.getAttribute("adminuser")!="admin"){
 			},
 			function(replyCnt, list) {
 
-				console.log("replyCnt: "
-						+ replyCnt);
+				console.log("replyCnt: " + replyCnt);
 				console.log("list: " + list);
 				console.log(list);
 
 				if (page == -1) {
-					pageNum = Math
-							.ceil(replyCnt / 10.0);
+					pageNum = Math.ceil(replyCnt / 10.0);
 					showList(pageNum);
 					return;
 				}
