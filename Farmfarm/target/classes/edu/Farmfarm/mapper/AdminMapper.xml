@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
   <!-- 	BNO = id, TITLE = 이름, WRITER = 이메일, CONTENT = 센서별 그래프 --> 
-<mapper namespace="org.zerock.mapper.AdminMapper">
+<mapper namespace="edu.Farmfarm.mapper.AdminMapper">
 
 	<sql id="criteria">
 		<trim prefix="(" suffix=") AND " prefixOverrides="OR">
@@ -26,7 +26,7 @@
 		</trim>
 	</sql>
 
-	<select id="getList" resultType="org.zerock.domain.AdminVO">
+	<select id="getList" resultType="edu.Farmfarm.domain.AdminVO">
 	<![CDATA[
 		select * from memberinfo where
 		seq <= 10
@@ -48,7 +48,7 @@
 		#{username}, #{Email})
 	</insert-->
 
-	<select id="read" resultType="org.zerock.domain.AdminVO">
+	<select id="read" resultType="edu.Farmfarm.domain.AdminVO">
 		select * from memberinfo where ID =	#{ID}
 	</select>
 
@@ -69,7 +69,7 @@
 
 
 <select id="getListWithPaging"
-    resultType="org.zerock.domain.AdminVO">
+    resultType="edu.Farmfarm.domain.AdminVO">
   <![CDATA[
    select 
      id, username, Email, serialnum, updatedate
@@ -87,7 +87,7 @@
   </select>   
 -->
 
- <select id="getListWithPaging" resultType="org.zerock.domain.AdminVO">
+ <select id="getListWithPaging" resultType="edu.Farmfarm.domain.AdminVO">
   <![CDATA[
   select 
      ID, Username, Email, Serialnum
@@ -114,7 +114,7 @@
   seq > 0  
   </select>
   
-  <select id="totaltest" resultType="org.zerock.domain.AdminVO">
+  <select id="totaltest" resultType="edu.Farmfarm.domain.AdminVO">
 	<![CDATA[
 		select count(*) as totaltest from memberinfo where seq > 0  
 		]]>

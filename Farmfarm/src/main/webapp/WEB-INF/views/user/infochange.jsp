@@ -44,20 +44,20 @@
 
 <body>
 <div class="row">
-  <div class="col-lg-12">
+  <div class="col-lg-12" style=" text-align: center;">
     <h1 class="page-header">내 정보 수정</h1>
   </div>
   <!-- /.col-lg-12 -->
 </div>
 <!-- /.row -->
-
-<div class="row">
- <div class="col-lg-12">
+<div class="col-lg-4" ></div>
+<div class="row" style="left:150px;">
+ <div class="col-lg-4" style="transform: scale( 1.2 ); margin-top: 100px;">
   <div class="panel panel-default">
 
-   <div class="panel-heading">원하시는 정보를 수정하시려면 비밀번호를 입력하세요</div>
+   <div class="panel-heading" style=" text-align: center; background:#1fab89;"><samp style="color:#fff">원하시는 정보를 수정하시려면 비밀번호를 입력하세요</samp></div>
       <!-- /.panel-heading -->
-    <div class="panel-body">
+    <div class="panel-body" style=" margin-left: 150px; padding: 30px 0px;">
 
 <% int choice = (int)request.getAttribute("choice");
 

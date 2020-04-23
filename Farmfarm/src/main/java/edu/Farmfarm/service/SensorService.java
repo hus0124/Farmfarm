@@ -4,21 +4,28 @@ package edu.Farmfarm.service;
 
 import java.util.List;
 
-import edu.Farmfarm.domain.Criteria;
 import edu.Farmfarm.domain.SensorVO;
 
 public interface SensorService {
 	
-	public List<SensorVO> weektemp();
+public List<SensorVO> weektemp();
 	
-	public List<SensorVO> weektemp1(Criteria criS);
+	public List<SensorVO> weeklight();
 	
-	public List<SensorVO> weekhumid();
+	public List<SensorVO> weekground();
+	
+	public List<SensorVO> weekwater();
 	
 	public List<SensorVO> weektime();
 	
-	public int maxnum();
+	public List<SensorVO> tempck();
 	
-	public List<SensorVO> testChart();
+	public List<SensorVO> lightck();
+	
+	public List<SensorVO> groundck();
+	
+	public List<SensorVO> waterck();
+	
+	public Integer maxnum();
 	
 }

@@ -2,8 +2,6 @@ package edu.Farmfarm.domain;
 
 
 
-import java.sql.Timestamp;
-
 import lombok.Data;
 
 @Data

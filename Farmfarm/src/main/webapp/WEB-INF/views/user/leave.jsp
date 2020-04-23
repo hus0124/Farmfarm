@@ -45,20 +45,20 @@
 
 <body>
 <div class="row">
-  <div class="col-lg-12">
+  <div class="col-lg-12" style=" text-align: center;">
     <h1 class="page-header">회원 탈퇴 처리</h1>
   </div>
   <!-- /.col-lg-12 -->
 </div>
 <!-- /.row -->
-
-<div class="row">
- <div class="col-lg-12">
+<div class="col-lg-4" ></div>
+<div class="row" style="left:150px;">
+ <div class="col-lg-4" style="transform: scale( 1.2 ); margin-top: 100px;">
   <div class="panel panel-default">
 
-   <div class="panel-heading">주의! 회원 탈퇴가 진행됩니다</div>
+   <div class="panel-heading" style=" text-align: center; background:#1fab89;"><samp style="color:#fff">주의! 회원 탈퇴가 진행됩니다</samp></div>
       <!-- /.panel-heading -->
-    <div class="panel-body">
+    <div class="panel-body" style=" margin-left: 150px; padding: 30px 0px;">
 
 	 <form action = "/user/leave" method = "post"> 
 	
@@ -69,12 +69,13 @@
 	   <label>정말 회원 정보를 삭제하고 탈퇴 하시겠습니까?</label><br><br> 
 	   <button type="submit" class="btn btn-danger" style = "width:145px;">탈퇴하기</button>
 	  </div>
-	   
-	 </form>
+	 </form> 
 	
 	<div class="form-group">
 	 <a href = "/user/myinfo"><button class = "btn btn-default" style = "width:145px;">내정보보기</button></a>
 	</div>
+	
+	
 	
 	
     </div>
@@ -94,10 +95,6 @@
         alert("회원탈퇴 처리 완료되었습니다. 감사합니다.");
         self.location = "/user/index"
     }; 
-    
-//     if (msg === "FAIL"){
-//         alert("아이디와 비밀번호를 확인해주세요.");
-//     }
     
 </script>
     

@@ -1,5 +1,7 @@
 package edu.Farmfarm.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.mindrot.jbcrypt.BCrypt;
@@ -13,7 +15,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import edu.Farmfarm.domain.LoginDTO;
+import edu.Farmfarm.domain.SensorVO;
 import edu.Farmfarm.domain.UserVO;
+import edu.Farmfarm.service.SensorService;
 import edu.Farmfarm.service.UserService;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
@@ -24,6 +28,7 @@ import lombok.extern.log4j.Log4j;
 @AllArgsConstructor
 public class UserController {
 
+	private SensorService sservice;
 	private UserService service;
 	
 	//index 화면처리
@@ -40,9 +45,26 @@ public class UserController {
     	
     	log.info("***********loginDTO 제대로 들어오냐?:"+loginDTO);
     	log.info("***********userVO 제대로 들어오냐?:"+userVO);
-    	//boolean boo = BCrypt.checkpw(loginDTO.getPW(), userVO.getPW());
-    	//log.info("***********비밀번호 비교 : " + boo);
     	
+    	List<SensorVO> tempList = sservice.weektemp();
+		List<SensorVO> timeList = sservice.weektime();
+		log.info("테스트 리스트 원본" + tempList);
+		log.info("테스트 리스트 원본" + timeList);
+		model.addAttribute("tempList", tempList);
+		model.addAttribute("timeList", timeList);
+		
+		List<SensorVO> lightList = sservice.weeklight();
+		log.info("테스트 리스트 원본" + lightList);
+		model.addAttribute("lightList", lightList);
+		
+		List<SensorVO> groundList = sservice.weekground();
+		log.info("테스트 리스트 원본" + groundList);
+		model.addAttribute("groundList", groundList);
+
+		
+		List<SensorVO> waterList = sservice.weekwater();
+		log.info("테스트 리스트 원본" + waterList);
+		model.addAttribute("waterList", waterList);
 		
 		if (userVO == null) { 
 			return "/user/mainPotal"; 
@@ -55,7 +77,7 @@ public class UserController {
 		else if (userVO.getID().equals("admin")) {
 			httpsession.setAttribute("adminuser", "admin"); // 관리자 세션 부여
 			log.info("****admin 아이디가 잘 뜨는가");
-			return "/admin/admintemp";
+			return "redirect:/admin/list";
 		}
 		 
 		else {
@@ -70,6 +92,25 @@ public class UserController {
 	//로그인 이후에 mainPotal 버튼 링크
 	@GetMapping("/mainPotal")
 	public String getmainPotal(HttpSession httpSession, Model model) {
+		List<SensorVO> tempList = sservice.weektemp();
+		List<SensorVO> timeList = sservice.weektime();
+		log.info("테스트 리스트 원본" + tempList);
+		log.info("테스트 리스트 원본" + timeList);
+		model.addAttribute("tempList", tempList);
+		model.addAttribute("timeList", timeList);
+		
+		List<SensorVO> lightList = sservice.weeklight();
+		log.info("테스트 리스트 원본" + lightList);
+		model.addAttribute("lightList", lightList);
+		
+		List<SensorVO> groundList = sservice.weekground();
+		log.info("테스트 리스트 원본" + groundList);
+		model.addAttribute("groundList", groundList);
+
+		
+		List<SensorVO> waterList = sservice.weekwater();
+		log.info("테스트 리스트 원본" + waterList);
+		model.addAttribute("waterList", waterList);
 		
 		Object object = httpSession.getAttribute("nowuser");
 		if(object!=null) {

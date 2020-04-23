@@ -5,6 +5,15 @@
 
 
 <%@include file="../includes/header.jsp"%>
+
+<!-- 관리자 세션일 경우에만 출력 -->
+<%
+System.out.println("시스템 프린트"+session.getAttribute("adminuser"));
+if (session.getAttribute("adminuser")!="admin"){
+%>
+접근이 제한된 페이지 입니다. <a href="/user/index">홈으로 돌아가세요</a> 
+<% } else { %>
+
 <div class="row">
 	<div class="col-lg-12">
 		<h1 class="page-header">Admin</h1>
@@ -192,8 +201,6 @@
 </script>
 
 
-
-
-
+<% } %> <!-- 관리자만 보는 페이지 끝 -->
 
 <%@include file="../includes/footer.jsp"%>

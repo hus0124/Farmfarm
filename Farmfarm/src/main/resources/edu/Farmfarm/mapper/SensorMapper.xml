@@ -6,31 +6,49 @@
 
 	
 	
-	<select id="maxnum" resultType="edu.Farmfarm.domain.SensorVO">
-	<![CDATA[
-		SELECT MAX(seq) from sensorinfo 
-		]]>
-	</select>
+
 	
 	<select id="weektemp" resultType="edu.Farmfarm.domain.SensorVO">
-	<![CDATA[
-		SELECT Temp from sensorinfo ORDER BY seq DESC LIMIT 7
-		]]>
+		<![CDATA[SELECT Temp FROM sensorinfo LIMIT 20]]>
+	</select>
+	
+	<select id="tempck" resultType="edu.Farmfarm.domain.SensorVO">
+		<![CDATA[SELECT seq,Temp FROM sensorinfo ORDER BY seq DESC LIMIT 20]]>
+	</select>
+	
+	<select id="weeklight" resultType="edu.Farmfarm.domain.SensorVO">
+		<![CDATA[SELECT Light FROM sensorinfo LIMIT 20]]>
+	</select>
+	
+	<select id="lightck" resultType="edu.Farmfarm.domain.SensorVO">
+		<![CDATA[SELECT seq,Light FROM sensorinfo ORDER BY seq DESC LIMIT 20]]>
+	</select>
+	
+	<select id="weekground" resultType="edu.Farmfarm.domain.SensorVO">
+		<![CDATA[SELECT Ground FROM sensorinfo LIMIT 20]]>
+	</select>
+	
+	<select id="groundck" resultType="edu.Farmfarm.domain.SensorVO">
+		<![CDATA[SELECT seq,Ground FROM sensorinfo ORDER BY seq DESC LIMIT 20]]>
+	</select>
+	
+	<select id="weekwater" resultType="edu.Farmfarm.domain.SensorVO">
+		<![CDATA[SELECT Water FROM sensorinfo LIMIT 20]]>
+	</select>
+	
+	<select id="waterck" resultType="edu.Farmfarm.domain.SensorVO">
+		<![CDATA[SELECT seq,Water FROM sensorinfo ORDER BY seq DESC LIMIT 20]]>
 	</select>
 	
 	<select id="weektime" resultType="edu.Farmfarm.domain.SensorVO">
-	<![CDATA[
-		SELECT Time from sensorinfo ORDER BY seq DESC LIMIT 7
-		]]>
-	</select>
-
-	<select id="weekhumid" resultType="edu.Farmfarm.domain.SensorVO">
-	<![CDATA[
-		SELECT Humid from sensorinfo ORDER BY seq DESC LIMIT 7
-		]]>
+		<![CDATA[SELECT DATE_FORMAT(Time,'%Hh%im') Time FROM sensorinfo LIMIT 20]]>
 	</select>
 	
-	<select id = "testChart" resultType="edu.Farmfarm.domain.SensorVO">
-	 SELECT TIME, Temp, Humid FROM sensorinfo ORDER BY seq DESC LIMIT 7
+	<select id="maxnum" resultType= "Integer">
+		<![CDATA[SELECT MAX(seq) seq FROM sensorinfo]]>
 	</select>
+
+	
+	
 </mapper>
+

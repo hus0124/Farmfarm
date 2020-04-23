@@ -2,21 +2,28 @@ package edu.Farmfarm.mapper;
 
 import java.util.List;
 
-import edu.Farmfarm.domain.Criteria;
 import edu.Farmfarm.domain.SensorVO;
 
 public interface SensorMapper {
 	
-	public List<SensorVO> weektemp();
+public List<SensorVO> weektemp();
 	
-	public List<SensorVO> weektempcri(Criteria cri);
+	public List<SensorVO> weeklight();
 	
-	public List<SensorVO> weekhumid();
+	public List<SensorVO> weekground();
+	
+	public List<SensorVO> weekwater();
 	
 	public List<SensorVO> weektime();
  	
-	public int maxnum();
+	public List<SensorVO> tempck();
 	
-	public List<SensorVO> testChart();
+	public List<SensorVO> lightck();
+	
+	public List<SensorVO> groundck();
+	
+	public List<SensorVO> waterck();
+	
+	public Integer maxnum();
 
 }

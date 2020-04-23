@@ -6,7 +6,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import edu.Farmfarm.domain.Criteria;
+
 import edu.Farmfarm.domain.SensorVO;
 import edu.Farmfarm.mapper.SensorMapper;
 import lombok.AllArgsConstructor;
@@ -24,19 +24,49 @@ public class SenserServicelmpl implements SensorService {
 	}
 	
 	@Override
-	public List<SensorVO> weektemp1(Criteria cri) {
-		log.info("read" );
-		return smapper.weektemp();
-	}
-
-	@Override
-	public List<SensorVO> weekhumid() {
+	public List<SensorVO> weeklight() {
 		log.info("read");
-		return smapper.weekhumid();
+		return smapper.weeklight();
+	}
+	
+	@Override
+	public List<SensorVO> weekground() {
+		log.info("read");
+		return smapper.weekground();
+	}
+	
+	@Override
+	public List<SensorVO> weekwater() {
+		log.info("read");
+		return smapper.weekwater();
+	}
+	
+	@Override
+	public List<SensorVO> tempck() {
+		log.info("read" );
+		return smapper.tempck();
+	}
+	
+	@Override
+	public List<SensorVO> lightck() {
+		log.info("read");
+		return smapper.lightck();
+	}
+	
+	@Override
+	public List<SensorVO> groundck() {
+		log.info("read");
+		return smapper.groundck();
+	}
+	
+	@Override
+	public List<SensorVO> waterck() {
+		log.info("read");
+		return smapper.waterck();
 	}
 
 	@Override
-	public int maxnum() {
+	public Integer maxnum() {
 		log.info("maxnum" );
 		return smapper.maxnum();
 	}
@@ -44,13 +74,6 @@ public class SenserServicelmpl implements SensorService {
 	@Override
 	public List<SensorVO> weektime() {
 		log.info("read");
-		return smapper.weekhumid();
-	}
-
-	@Override
-	public List<SensorVO> testChart() {
-		// TODO Auto-generated method stub
-		log.info("테스트 차트 VO 읽어들이기");
-		return smapper.testChart();
+		return smapper.weektime();
 	}
 }

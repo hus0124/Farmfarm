@@ -1,5 +1,5 @@
-<!--<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>-->
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 	 <!DOCTYPE html>
 	 <html>
 	 <head>
@@ -127,15 +127,15 @@
 		
 	<script type = "text/javascript">
 
-    var msg = "${msg}";
-    if (msg === "REGISTERED") {
-        alert("회원가입이 완료되었습니다. 로그인해주세요~");
-    } 
+     var msg = "${msg}";
+     if (msg === "REGISTERED") {
+         alert("회원가입이 완료되었습니다. 로그인해주세요~");
+     } 
     
 //     if (msg === "FAIL"){
 //         alert("아이디와 비밀번호를 확인해주세요.");
 //     }
     
-</script>	
+ </script>	 
 	</body>
 	 </html>

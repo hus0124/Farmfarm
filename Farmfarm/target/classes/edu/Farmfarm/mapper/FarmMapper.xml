@@ -5,7 +5,7 @@
 <mapper namespace="edu.Farmfarm.mapper.FarmMapper">
 
 <insert id = "insert">
-	insert into test1 (testnum) values (#{Temp})
+	insert into test1 (Temp,Water,Light, Ground) values (#{Temp}, #{Water}, #{Light}, #{Ground})
 </insert>
 
 </mapper>

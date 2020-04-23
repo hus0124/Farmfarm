@@ -1,64 +1,103 @@
 package edu.Farmfarm.controller;
 
-import java.sql.Array;
-import java.sql.Date;
-import java.sql.Timestamp;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.logging.Logger;
 
-import javax.jws.WebParam.Mode;
-import javax.servlet.http.HttpServletResponse;
-import javax.swing.ListModel;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cglib.core.Local;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+
+
+
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+
+
 import org.springframework.web.bind.annotation.RestController;
 
-import edu.Farmfarm.domain.Criteria;
-import edu.Farmfarm.domain.SensorVO;
-import edu.Farmfarm.mapper.SensorMapper;
+
 import edu.Farmfarm.service.SensorService;
 import lombok.AllArgsConstructor;
-import lombok.Setter;
-import lombok.var;
+
 import lombok.extern.log4j.Log4j;
 @Log4j
 @RestController
 @RequestMapping("/ajax/*")
 @AllArgsConstructor
 public class AjaxController {
-
+	
 	private SensorService ss;
+	
+	
 
-	@GetMapping("/humid")
-	public String humid() {
-		
-		String humid = String.valueOf(ss.weekhumid().get(0).getHumid());
-		log.info("그냥 humid 정보" + humid);
-		return humid;
+	//온도 간략
+	@GetMapping("/tempcheck")
+	public String tempcheck() {
+		int a;
+		String temp = String.valueOf(ss.tempck().get(0).getTemp());
+		log.info(temp);
+		a = Integer.parseInt(temp);
+		String ck = null;
+		if(a>18 && a<30) {
+			ck="GOOD";
+		}else if(a<18){
+			ck="COLD";
+		}else if(a>=30){
+			ck="HOT";
+		}
+		log.info(ck);
+		return ck;
 	}
 	
-	@GetMapping("/wkhumid")
-	@ResponseBody
-	public List<String> wkhumid(Local local, Model model) {
-		List<String> humidlist =new ArrayList<String>();
-		for(int i=0;i<7;i++) {
-			String humid=String.valueOf(ss.weekhumid().get(i).getHumid());
-			humidlist.add(humid);
+	//조도간략
+	@GetMapping("/lightcheck")
+	public String lightcheck() {
+		int a;
+		String light = String.valueOf(ss.lightck().get(0).getLight());
+		log.info(light);
+		a = Integer.parseInt(light);
+		String ck = null;
+		if(a<=180) {
+			ck="GOOD";
+		}else if(a>180){
+			ck="DARK";
 		}
-		log.info("*****리스트 값 나옴???" + humidlist);
-		return humidlist;
+		log.info(ck);
+		return ck;		
 	}
-
+	
+	//땅간략
+	@GetMapping("/groundcheck")
+	public String groundcheck() {
+		int a;
+		String ground = String.valueOf(ss.groundck().get(0).getGround());
+		log.info(ground);
+		a = Integer.parseInt(ground);
+		String ck = null;
+		if(a>60 && a<70) {
+			ck="GOOD";
+		}else if(a<=60){
+			ck="DRY";
+		}else if(a>=70){
+			ck="WET";
+		}
+		log.info(ck);
+		return ck;		
+	}
+	
+	//수위간략
+	@GetMapping("/watercheck")
+	public String watercheck() {
+		int a;
+		String water = String.valueOf(ss.waterck().get(0).getWater());
+		log.info(water);
+		a = Integer.parseInt(water);
+		String ck = null;
+		if(a>=50) {
+			ck="GOOD";
+		}else if(a<50){
+			ck="LOW";
+		}
+		log.info(ck);
+		return ck;		
+	}
 	
 }
 	
