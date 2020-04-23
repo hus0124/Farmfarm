@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<!--<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>-->
 	 <!DOCTYPE html>
 	 <html>
 	 <head>
@@ -28,7 +28,7 @@
 		 .index_bgimg {position:absolute; top:70px; right:360px; width:290px; height:490px; opacity:0.8;}
 		 
 		  /* 로그인 */			
-		 .login {position:absolute; bottom:85px; right:295px; width:220px; height:140px; border-radius:10px; text-align:center; background:#ccc; transform:scale(1.2)}
+		 .login {position:absolute; bottom:65px; right:295px; width:220px; height:160px; border-radius:10px; text-align:center; background:#ccc; transform:scale(1.2)}
 		 .login form {padding-top:15px;}
 		 .login form input {padding: 5px 0px; margin: 3px 10px; border-radius:6px;}
 		 .login form .bt {padding: 5px 15px; margin: 3px 10px; border-radius:6px;}
@@ -127,15 +127,15 @@
 		
 	<script type = "text/javascript">
 
-     var msg = "${msg}";
-     if (msg === "REGISTERED") {
-         alert("회원가입이 완료되었습니다. 로그인해주세요~");
-     } 
+    var msg = "${msg}";
+    if (msg === "REGISTERED") {
+        alert("회원가입이 완료되었습니다. 로그인해주세요~");
+    } 
     
 //     if (msg === "FAIL"){
 //         alert("아이디와 비밀번호를 확인해주세요.");
 //     }
     
- </script>	 
+</script>	
 	</body>
 	 </html>
