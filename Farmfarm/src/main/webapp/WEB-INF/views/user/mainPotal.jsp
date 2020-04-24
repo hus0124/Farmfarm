@@ -24,7 +24,7 @@
          </div>
 
          <!-- 로고 -->
-         <h1><a href="http://localhost:8090/user/mainPotal"><img src="/resources/dist/images/logo-4.png" alt="팜팜이"></a></h1>
+         <h1><a href="http://iotmit.iptime.org:3233/user/mainPotal"><img src="/resources/dist/images/logo-4.png" alt="팜팜이"></a></h1>
 
          <!-- GNB -->
          <div id="gnb">
@@ -119,7 +119,7 @@ else {
 	function check(){
    
     	$.ajax({
-      		url:"http://localhost:8090/ajax/tempcheck",
+      		url:"http://iotmit.iptime.org:3180/ajax/tempcheck",
       		type:"get",
       		async:false,
       		cache:false,
@@ -132,7 +132,7 @@ else {
 		});
     		   
         $.ajax({
-          	url:"http://localhost:8090/ajax/watercheck",
+          	url:"http://iotmit.iptime.org:3180/ajax/watercheck",
           	type:"get",
           	async:false,
           	cache:false,
@@ -145,7 +145,7 @@ else {
     	});
         
         $.ajax({
-          	url:"http://localhost:8090/ajax/lightcheck",
+          	url:"http://iotmit.iptime.org:3180/ajax/lightcheck",
           	type:"get",
           	async:false,
           	cache:false,
@@ -158,7 +158,7 @@ else {
     	});
         
         $.ajax({
-          	url:"http://localhost:8090/ajax/groundcheck",
+          	url:"http://iotmit.iptime.org:3180/ajax/groundcheck",
           	type:"get",
           	async:false,
           	cache:false,
