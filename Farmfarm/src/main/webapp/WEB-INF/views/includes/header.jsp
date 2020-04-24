@@ -49,7 +49,7 @@
             <div class="navbar-header">
                 <!-- GNB -->  
                        
-                <div id="logo"><a href="http://localhost:8090/user/index"><img src="/resources/dist/images/logo-4.png" alt="팜팜이"></a></div>
+                <div id="logo"><a href="http://iotmit.iptime.org:3180/user/mainPotal"><img src="/resources/dist/images/logo-4.png" alt="팜팜이"></a></div>
                 <div id="gnb">
 	            <ul class="pull-right">            
 	               <li><a href="/user/logout"><span></span>Log Out</a></li>               

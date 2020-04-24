@@ -24,7 +24,7 @@
          </div>
 
          <!-- 로고 -->
-         <h1><a href="http://iotmit.iptime.org:3233/user/mainPotal"><img src="/resources/dist/images/logo-4.png" alt="팜팜이"></a></h1>
+         <h1><a href="http://iotmit.iptime.org:3180/user/mainPotal"><img src="/resources/dist/images/logo-4.png" alt="팜팜이"></a></h1>
 
          <!-- GNB -->
          <div id="gnb">
