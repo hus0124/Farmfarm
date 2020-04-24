@@ -76,6 +76,7 @@ public class UserController {
 		
 		else if (userVO.getID().equals("admin")) {
 			httpsession.setAttribute("adminuser", "admin"); // 관리자 세션 부여
+			httpsession.setAttribute("nowuser",	userVO.getID()); // 사용자 세션 부여
 			log.info("****admin 아이디가 잘 뜨는가");
 			return "redirect:/admin/list";
 		}
