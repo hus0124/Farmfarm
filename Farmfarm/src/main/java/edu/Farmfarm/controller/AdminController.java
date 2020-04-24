@@ -1,5 +1,7 @@
 package edu.Farmfarm.controller;
 
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -8,10 +10,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
 import edu.Farmfarm.domain.AdminVO;
 import edu.Farmfarm.domain.Criteria;
 import edu.Farmfarm.domain.PageDTO;
+import edu.Farmfarm.domain.SensorVO;
 import edu.Farmfarm.service.AdminService;
+import edu.Farmfarm.service.SensorService;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j;
 
@@ -22,6 +27,7 @@ import lombok.extern.log4j.Log4j;
 public class AdminController {
 
 	private AdminService service;
+	private SensorService sservice;
 
 	@GetMapping("/register")
 	public void register() {
@@ -56,7 +62,25 @@ public class AdminController {
 
 	@GetMapping({ "/get", "/modify" })
 	public void get(@RequestParam("id") String id, @ModelAttribute("cri") Criteria cri, Model model) {
+		List<SensorVO> tempList = sservice.weektemp();
+		List<SensorVO> timeList = sservice.weektime();
+		log.info("테스트 리스트 원본" + tempList);
+		log.info("테스트 리스트 원본" + timeList);
+		model.addAttribute("tempList", tempList);
+		model.addAttribute("timeList", timeList);
+		
+		List<SensorVO> lightList = sservice.weeklight();
+		log.info("테스트 리스트 원본" + lightList);
+		model.addAttribute("lightList", lightList);
+		
+		List<SensorVO> groundList = sservice.weekground();
+		log.info("테스트 리스트 원본" + groundList);
+		model.addAttribute("groundList", groundList);
 
+		
+		List<SensorVO> waterList = sservice.weekwater();
+		log.info("테스트 리스트 원본" + waterList);
+		model.addAttribute("waterList", waterList);
 		log.info("/get or modify 그리고 id 값" + id);
 		model.addAttribute("admin", service.get(id));
 	}
