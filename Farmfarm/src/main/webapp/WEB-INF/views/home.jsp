@@ -8,7 +8,7 @@
 </head>
 <body>
 <h1>
-	Hello world!  20200423 18:43 염보영
+	Hello world!  2020 Apr 24 FarmFarm
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
