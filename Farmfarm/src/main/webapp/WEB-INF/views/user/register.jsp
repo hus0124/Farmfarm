@@ -40,6 +40,7 @@
 
     <!-- Custom CSS -->
     <link href="/resources/dist/css/sb-admin-2.css" rel="stylesheet">
+    <link href="/resources/dist/css/sb-admin-2.min.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="/resources/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -55,25 +56,25 @@
 
 <body>
 <div class="row">
-  <div class="col-lg-12">
+  <div class="col-lg-12" style=" text-align: center;">
     <h1 class="page-header">회원 가입을 환영합니다</h1>
   </div>
   <!-- /.col-lg-12 -->
 </div>
 <!-- /.row -->
-
-<div class="row">
- <div class="col-lg-12">
+<div class="col-lg-4" ></div>
+<div class="row" style="left:150px;">
+ <div class="col-lg-4" style="transform: scale( 1.2 ); margin-top: 100px;">
   <div class="panel panel-default">
 
-   <div class="panel-heading">팜팜이 회원 등록</div>
+   <div class="panel-heading" style=" text-align: center; background:#1fab89;"><samp style="color:#fff">팜팜이 회원 등록</samp></div>
       <!-- /.panel-heading -->
-    <div class="panel-body">
+    <div class="panel-body" style=" margin-left: 150px; padding: 30px 0px;">
       
      <form role="form" action ="/user/register" method = "post">
       
       <div class="form-group">
-       <label>아이디</label><input class = "form-control" type = "text" id = "user_id" name = "ID" style = "width:300px;" required>
+       <label>아이디</label><input class = "form-control" type = "text" id = "user_id" name = "ID" style = "width:300px;" >
       </div> 
 	  
 	   <div class="check_font" id="id_check"></div> <!-- 아이디 검사표시 자리 -->
