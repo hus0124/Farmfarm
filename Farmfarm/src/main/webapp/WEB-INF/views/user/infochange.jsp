@@ -70,7 +70,7 @@
 	   <label>비밀번호 확인 </label> 
 	   <input class = "form-control" type = "password" name = "PW" style = "width:300px;">
 	   <label>변경할 이름 입력 </label> 
-	   <input class = "form-control" type = "text" name = "Username" style = "width:300px;">
+	   <input class = "form-control" type = "text" name = "Username" style = "width:300px;" required>
 	   <button type="submit" class="btn btn-warning" style = "width:145px;" name = "choice" value = "1">수정하기</button>
 	 </div> 
     </form>
@@ -84,7 +84,7 @@
 	   <label>비밀번호 확인 </label> 
 	   <input class = "form-control" type = "password" name = "PW" style = "width:300px;">
 	   <label>변경할 이메일 입력 </label> 
-	   <input class = "form-control" type = "text" name = "Email" style = "width:300px;">
+	   <input class = "form-control" type = "text" name = "Email" style = "width:300px;" required>
 	   <button type="submit" class="btn btn-warning" style = "width:145px;" name = "choice" value = "2">수정하기</button>
 	 </div> 
     </form>
@@ -99,7 +99,7 @@
 	   <label>비밀번호 확인 </label> 
 	   <input class = "form-control" type = "password" name = "PW" style = "width:300px;">
 	   <label>변경할 시리얼 넘버 입력 </label> 
-	   <input class = "form-control" type = "text" name = "Serialnum" style = "width:300px;">
+	   <input class = "form-control" type = "text" name = "Serialnum" style = "width:300px;" required>
 	   <button type="submit" class="btn btn-warning" style = "width:145px;" name = "choice" value = "3">수정하기</button>
 	 </div> 
     </form>
@@ -114,7 +114,7 @@
 	   <label>기존 비밀번호 확인 </label> 
 	   <input class = "form-control" type = "password" name = "PW" style = "width:300px;">
 	   <label>변경할 비밀번호 입력 </label> 
-	   <input class = "form-control" type = "password" name = "afterPW" style = "width:300px;">
+	   <input class = "form-control" type = "password" name = "afterPW" style = "width:300px;" required>
 	   <button type="submit" class="btn btn-warning" style = "width:145px;">수정하기</button>
 	 </div> 
     </form>

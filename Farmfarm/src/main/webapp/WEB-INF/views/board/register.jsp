@@ -21,7 +21,7 @@
       <!-- /.panel-heading -->
       <div class="panel-body">
 
-        <form role="form" action="/게시글/register" method="post">
+        <form role="form" action="/board/register" method="post">
           <div class="form-group">
             <label>제목</label> <input class="form-control" name='title'>
           </div>

@@ -16,8 +16,9 @@
 		<property name="driverClassName" value="net.sf.log4jdbc.sql.jdbcapi.DriverSpy"></property>
 			<!--  value="org.mariadb.jdbc.Driver"></property> -->
 			
+<!-- 		<property name="jdbcUrl" value="jdbc:log4jdbc:mariadb://iotmit.iptime.org:3233/testfarm"></property>  -->
 		<property name="jdbcUrl" value="jdbc:log4jdbc:mariadb://192.168.0.12:3306/testfarm"></property>
-			<!-- value="jdbc:mariadb://iotmit.iptime.org:3233/testfarm"></property> -->
+			
 			
 		<property name="username" value="farm2"></property>
 		<property name="password" value="1234"></property>
